@@ -1,0 +1,44 @@
+.App {
+  /* text-align: center; */
+  border: 1px solid white;
+  background-color: burlywood;
+  
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+ background-color: aquamarine;
+}
+
+
+
+
+.end{
+  border: 2px solid black;
+  background-color: cadetblue;
+}
+
+.end{
+  border: 2px solid black;
+  background-color: cadetblue;
+}
+.end1{
+  float: right;
+  
+  
+}
+.end2{
+  float: right;
+  margin-right: -250px;
+  margin-top: 40px;
+}
+.end3{
+  float: right;
+  margin-top: 60px;
+}
+.first{
+ margin-bottom: -100px
+}
+
+
