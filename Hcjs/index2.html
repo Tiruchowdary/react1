@@ -1,0 +1,148 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url("./Images/login2.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+        }
+
+        .main {
+            /* border:2px solid black; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 400px;
+            height: 300px;
+            background-color: rgba(77, 143, 118, 0.6);
+            margin-top: 150px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <form action="">
+            <label for="" style="font-size: xx-large;">Sign Up Here</label><br>
+            <input type="text" placeholder="username" required><br>
+            <input type="text" placeholder="voter id" required /><br>
+            <input type="text" placeholder="address" required /><br>
+            <input type="submit" /><br>
+        </form>
+    </div>
+
+    <!-- <script>
+        var f = document.forms;
+        var arr = [];
+
+        function usernameExists(username) {
+            return arr.some(item => item.username === username);
+        }
+
+        function voterExists(voterid) {
+            return arr.some(item => item.voterid === voterid);
+        }
+
+        f[0].addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            var pass = {
+                username: e.target[0].value,
+                voterid: e.target[1].value,
+                address: e.target[2].value,
+            };
+
+            if (!usernameExists(pass.username)) {
+                if (!voterExists(pass.voterid)) {
+                    arr.push(pass);
+                    window.localStorage.setItem("logindetails", JSON.stringify(arr));
+                    window.location.assign("./index.html");
+                }
+                else {
+                    alert("voter already vundhi ra pooka")
+                }
+
+            }
+            else {
+                alert("alerady there");
+            }
+
+            console.log(arr);
+            e.target[0].value = "";
+            e.target[1].value = "";
+            e.target[2].value = "";
+        });
+    </script> -->
+
+    <script>
+    // Function to check if a username exists in the array
+    function usernameExists(username) {
+        return arr.some(item => item.username === username);
+    }
+
+    // Function to check if a voter ID exists in the array
+    function voterExists(voterid) {
+        return arr.some(item => item.voterid === voterid);
+    }
+
+    // Retrieve previously stored data from localStorage
+    var storedData = localStorage.getItem("logindetails");
+    var arr = storedData ? JSON.parse(storedData) : []; // If no data found, initialize an empty array
+
+    // Event listener for the form submission
+    document.forms[0].addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Extract form data
+        var pass = {
+            username: e.target[0].value,
+            voterid: e.target[1].value,
+            address: e.target[2].value,
+        };
+
+        // Check if the username and voter ID already exist
+        if (!usernameExists(pass.username)) {
+            if (!voterExists(pass.voterid)) {
+                // Add the new user to the array
+                arr.push(pass);
+                // Store the updated array back to localStorage
+                localStorage.setItem("logindetails", JSON.stringify(arr));
+                // Redirect to index.html
+                window.location.assign("./index.html");
+            }
+            else {
+                alert("Voter ID already exists!");
+            }
+        }
+        else {
+            alert("Username already exists!");
+        }
+
+        // Reset form fields
+        e.target[0].value = "";
+        e.target[1].value = "";
+        e.target[2].value = "";
+    });
+
+    </script>
+</body>
+
+</html>
